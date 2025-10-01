@@ -1,0 +1,15 @@
+services:
+  db:
+    build: .
+    # image: demo-mariadb
+    restart: always
+    environment:
+      DB_NAME: "test_app"
+      DB_USER: "user"
+      DB_PASS: "pass"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_demo:/var/lib/mysql
+volumes:
+  mariadb_demo:
